@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+import { BrowserRouter, Route, Routes } from "react-router-dom"; 
+import "./App.css"; 
+ 
+import NavBar from "./Componentes/NavBar/NavBar"; 
+import Home from "./Componentes/Home/Home"; 
+import Footer from "./Componentes/Footer/Footer"; 
+ 
+import Escaners from "./Componentes/Escaners/Escaners.js"; 
+import Portatil from "./Componentes/Portatiles/Portatiles.js"; 
+import PCescritorio from "./Componentes/Pcescritorio/Pcescritorio.js"; 
+import Impresoras from "./Componentes/Impresoras/Impresoras.js"; 
+ 
+import Contactanos from "./Componentes/Contactanos/Contactanos.js"; 
+import FormularioCompra from "./Componentes/FormularioCompra/FormularioCompra.js";
+/*import Venta from "./Componentes/Escaners/Venta.js";*/ 
+ 
+function App() { 
+  return ( 
+    <div className="App"> 
+      <BrowserRouter> 
+        <NavBar /> 
+        <Routes> 
+          <Route path="/" element={<Home />} /> 
+          <Route path="/Escaners" element={<Escaners />} /> 
+          <Route path="/Portatiles" element={<Portatil />} /> 
+          <Route path="/Pcescritorio" element={<PCescritorio />} /> 
+          <Route path="/Impresoras" element={<Impresoras />} /> 
+          <Route path="/contactos" element={<Contactanos />} /> 
+          <Route path="/formulario-compra/:producto" element={<FormularioCompra />} />
+        </Routes> 
+        <Footer /> 
+      </BrowserRouter> 
+    </div> 
+  ); 
+} 
 export default App;
